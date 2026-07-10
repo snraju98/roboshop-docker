@@ -13,11 +13,12 @@ services:
   frontend:
     build: ./frontend
     image: snraju98/frontend:v1
-    container_name: fontend
+    container_name: frontend
     ports:
       - "80:80"
     depends_on:
     - catalogue
+    - user
   user:
    build: ./user
    image: snraju98/user:v1
