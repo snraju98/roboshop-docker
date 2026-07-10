@@ -1,0 +1,25 @@
+name: roboshop
+services: 
+  mongodb:
+    build: ./mongodb
+    image: snraju98/mongodb:v1 # dovker build -t snraju98/mongodb:v1
+    container_name: mongodb # docker run -d --network roboshop snraju98/mongodb:v1
+  catalogue:
+    build: ./catalogue
+    image: snraju98/catalogue:v1
+    container_name: catalogue
+    depends_on:
+    - mongodb
+  frontend:
+    build: ./frontend
+    image: snraju98/frontend:v1
+    container_name: fontend
+    ports:
+      - "80:80"
+    depends_on:
+    - catalouge   
+networks:
+  default: #this means all the services in this file use thus network
+    name: roboshop
+    driver: bridge
+    external: false # it should be created manually, if false docker creates this network
