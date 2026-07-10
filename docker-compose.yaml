@@ -17,7 +17,7 @@ services:
     ports:
       - "80:80"
     depends_on:
-    - catalouge   
+    - catalogue   
 networks:
   default: #this means all the services in this file use thus network
     name: roboshop
