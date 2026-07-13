@@ -5,7 +5,7 @@ services:
     image: snraju98/mongodb:v1 # docker build -t snraju98/mongodb:v1
     container_name: mongodb # docker run -d --network roboshop snraju98/mongodb:v1
     volumes:
-    - mongodb:data/db #mongodb stores data in /data/db directory
+    - mongodb:/data/db #mongodb stores data in /data/db directory
   catalogue:
     build: ./catalogue
     image: snraju98/catalogue:v1
